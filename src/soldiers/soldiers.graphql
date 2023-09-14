@@ -1,0 +1,24 @@
+type Soldier {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateSoldierInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateSoldierInput {
+  id: Int!
+}
+
+type Query {
+  soldiers: [Soldier]!
+  soldier(id: Int!): Soldier
+}
+
+type Mutation {
+  createSoldier(createSoldierInput: CreateSoldierInput!): Soldier!
+  updateSoldier(updateSoldierInput: UpdateSoldierInput!): Soldier!
+  removeSoldier(id: Int!): Soldier
+}
