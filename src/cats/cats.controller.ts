@@ -1,4 +1,11 @@
-import { Controller, Get, HttpCode, Redirect, Param } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  HttpCode,
+  Redirect,
+  Param,
+  ParseIntPipe,
+} from '@nestjs/common';
 
 @Controller('cats')
 export class CatsController {
@@ -15,10 +22,10 @@ export class CatsController {
     return 'Cats redirect';
   }
 
-  @Get('bread/:name')
+  @Get('bread/:id')
   @HttpCode(200)
-  async getBread(@Param() { name }: any): Promise<string> {
-    return `Bread: ${name}`;
+  async getBread(@Param('id', ParseIntPipe) id: string): Promise<string> {
+    return id;
   }
 
   @Get('fr*th')
